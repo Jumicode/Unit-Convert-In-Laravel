@@ -58,7 +58,38 @@ public function convertWeight()
 
 }
 
+public function temperature()
+{
+    return view('conversion.temperature');
+}
+
+public function convertTemperature(Request $request)
+    {
+        $value = $request->input('value');
+        $fromUnit = $request->input('from_unit');
+        $toUnit = $request->input('to_unit');
+
+        if ($fromUnit == 'celsius' && $toUnit == 'fahrenheit') {
+            $result = ($value * 9/5) + 32;
+        } elseif ($fromUnit == 'fahrenheit' && $toUnit == 'celsius') {
+            $result = ($value - 32) * 5/9;
+        } elseif ($fromUnit == 'celsius' && $toUnit == 'kelvin') {
+            $result = $value + 273.15;
+        } elseif ($fromUnit == 'kelvin' && $toUnit == 'celsius') {
+            $result = $value - 273.15;
+        } elseif ($fromUnit == 'fahrenheit' && $toUnit == 'kelvin') {
+            $result = ($value - 32) * 5/9 + 273.15;
+        } elseif ($fromUnit == 'kelvin' && $toUnit == 'fahrenheit') {
+            $result = ($value - 273.15) * 9/5 + 32;
+        } else {
+            $result = $value;
+        }
+
+        return view('conversion.temperature', compact('result', 'value', 'fromUnit', 'toUnit'));
+    }
 
 
 
+
+    
 }
