@@ -32,4 +32,33 @@ class ConversionController extends Controller
 
         return view('conversion.length', compact('result', 'value', 'fromUnit', 'toUnit'));
     }
+
+public function weight() 
+{
+    return view('conversion.weight');
+}
+
+public function convertWeight()
+{
+    $value = $request->input('value');
+    $fromUnit = $request->input('from_unit');
+    $toUnit = $request->input('to_unit');
+
+    $conversions = [
+        'gram' => 1,
+        'kilogram' => 1000,
+        'milligram' => 0.001,
+        'ounce' => 28.3495,
+        'pound' => 453.592,
+    ];
+
+    $result = ($value * $conversions[$fromUnit]) / $conversions[$toUnit];
+
+    return view('conversion.weight', compact('result', 'value', 'fromUnit', 'toUnit'));
+
+}
+
+
+
+
 }
