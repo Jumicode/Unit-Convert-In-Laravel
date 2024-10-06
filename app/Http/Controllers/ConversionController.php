@@ -33,6 +33,11 @@ class ConversionController extends Controller
         return view('conversion.length', compact('result', 'value', 'fromUnit', 'toUnit'));
     }
 
+    public function weight()
+{
+    return view('conversion.weight');
+}
+
     public function convertWeight(Request $request)
     {
         $value = $request->input('value');

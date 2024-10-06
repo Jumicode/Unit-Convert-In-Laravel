@@ -6,6 +6,10 @@
     <title>Temperature Conversion</title>
 </head>
 <body>
+
+
+    @include('layouts.nav')
+
     <h1>Temperature Conversion</h1>
     <form action="/temperature" method="POST">
         @csrf

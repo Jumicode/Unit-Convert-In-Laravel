@@ -6,6 +6,9 @@
     <title>Weight Conversion</title>
 </head>
 <body>
+
+    @include('layouts.nav')
+    
     <h1>Weight Conversion</h1>
     <form action="/weight" method="POST">
         @csrf

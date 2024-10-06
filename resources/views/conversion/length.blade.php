@@ -6,6 +6,9 @@
     <title>Length Conversion</title>
 </head>
 <body>
+
+    @include('layouts.nav')
+    
     <h1>Length Conversion</h1>
     <form action="/length" method="POST">
         @csrf
